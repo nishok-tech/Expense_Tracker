@@ -2,11 +2,11 @@
 
 Sample Input
 
-Field	      Value
-Category	  TRAVEL
-Amount	    200
-Note        ticket
-Date	      2025-10-05
+Field    Value
+Category    TRAVEL
+Amount    200
+Note    ticket
+Date    2025-10-05
 
 Sample Output
 
