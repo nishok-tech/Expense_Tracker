@@ -51,7 +51,9 @@ Open src/main/resources/application.properties and verify:
 
 spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=expense_db;encrypt=false
 spring.datasource.username=your_username
+
 spring.datasource.password=your_password
+
 spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
