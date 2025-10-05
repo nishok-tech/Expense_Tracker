@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+  body{
+  font:Sans-serif;
+   }
+  #form-box{
+  background-color: #E2EAF4;
+  width:70%;
+  margin-right: 20%x;
+  margin-top: 30px;
+  padding: 20px;
+  }
+  </style>
+  </head>
+  <body>
+  <div th:if="${msg}" class="alert alert-success  alert-dismissible " role="alert">
+<span th:text="${msg}"></span>
+ <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  <h1 class="text-center">Expense tracker</h1>
+    
+    <div class="container" id="form-box" >
+ <form th:action="@{/add}" class="text-center" method="post" th:object="${expenseDto}">
+  <div class="mb-3">
+   <label for="exampleInputEmail1" class="form-label">Amount</label>
+<div class="input-group mb-3">
+<!--   <span class="input-group-text">₹</span> -->
+  <input type="number" class="form-control" placeholder="Enter amount" name="amount" th:field="*{amount}">
+  <span class="input-group-text">.00</span>
+</div>
+<div class="text-danger" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" ></div>
+
+<br>
+
+	 <label for="exampleInputEmail1" class="form-label">date</label>
+    <input type="date"  placeholder="MM-DD-YYYY" class="form-control" name="date" th:field="*{date}">
+    <div class="text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+    
+    <br>
+     <label for="exampleInputEmail1" class="form-label">note</label>
+    <input type="text" class="form-control"  name="note" th:field="*{note}">
+    <div class="text-danger" th:if="${#fields.hasErrors('note')}" th:errors="*{note}" ></div>
+    <br>
+     <label for="exampleInputEmail1" class="form-label">category</label>
+     <select class="form-select" aria-label="Default select example"  th:field="*{category}">
+    	<option value="" selected>Select Category</option>
+  	  <option value="TRAVEL" >TRAVEL</option>
+  	 <option value="MEDICINE" >MEDICINE</option>
+  	  <option value="RENT">RENT</option>
+  	   <option value="DRESS" >DRESS</option>
+  	    <option value="FOOD" >FOOD</option>
+	</select>
+    <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+  </div>
+ 
+ <div class="row">
+
+ <div class="col-3"><button type="submit" class="btn btn-success">ADD</button></div>
+ <div class="col-3"><a th:href="@{/}" class="btn btn-warning">RESET</a></div>
+ <div class="col-3"><a th:href="@{/alter_expense}" class="btn btn-danger">UPDATE/DELETE</a></div>
+ <div class="col-3"><a th:href="@{/all_Expenses}" class="btn btn-primary">ALL EXPENSES</a></div>
+
+ </div>
+  
+</form>
+	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
