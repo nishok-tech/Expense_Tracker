@@ -1,0 +1,41 @@
+📊 Sample Input / Output
+
+Sample Input
+
+Field	          Value
+Category	  TRAVEL
+Amount	    200
+Note        ticket
+Date	      2025-10-05
+
+Sample Output
+
+Category	  Amount	    Date         Note
+TRAVEL	    200	      2025-10-05    ticket
+
+🧱 Design Overview
+
+Architecture: MVC (Model-View-Controller)
+Flow:
+Controller → Service → Repository → Database
+
+Key Classes
+
+Expense_model.java — Entity
+
+Expense_cont - intial mode which runs as REST API can be tested in Postman API
+Exp_Cont.java — second version to handle simple UI
+
+Expense_Service.java — Business logic
+
+Expense_Repo.java — Data access layer
+
+Inside src/main/resources/static/templates - you will find html pages 
+
+🧩 Assumptions
+
+No login system yet; single user mode.
+
+Date field uses LocalDate (yyyy-MM-dd format).
+
+Database name: expense_db.
